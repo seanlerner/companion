@@ -1,0 +1,88 @@
+require: rubocop-rspec
+
+AllCops:
+  TargetRubyVersion: 2.3
+  DisplayCopNames: true
+  Exclude:
+    - '/**/test.rb'
+    - '/**/test_runner.rb'
+    - '/**/test_area/**'
+
+Rails:
+  Enabled: false
+
+Documentation:
+  Enabled: false
+
+Lint/Eval:
+  Enabled: true
+  Exclude:
+    - '/**/companion_frame.rb'
+    - '/**/companion_tracer.rb'
+    - '/**/monitor.rb'
+    - '/**/trace_teller.rb'
+
+Lint/UselessAssignment:
+  Enabled: true
+  Exclude:
+    - '/**/trace_teller.rb'
+
+Metrics/AbcSize:
+  Enabled: true
+  Exclude:
+    - '/**/frame.rb'
+    - '/**/monitor.rb'
+    - '/**/companion_trace.rb'
+    - '/**/companion_frame.rb'
+
+# Metrics/ClassLength:
+
+Metrics/CyclomaticComplexity:
+  Enabled: true
+  Exclude:
+    - '/**/companion_frame.rb'
+
+# Metrics/BlockNesting:
+
+Metrics/LineLength:
+  Max: 150
+  Exclude:
+    - '/**/trace_teller.rb'
+
+Metrics/MethodLength:
+  Enabled: true
+  Exclude:
+    - '/**/monitor.rb'
+    - '/**/companion_trace.rb'
+
+# Metrics/PerceivedComplexity:
+
+# RSpec/DescribeClass:
+
+# RSpec/FilePath:
+
+# Style/ClassAndModuleChildren:
+
+# Style/ClassVars:
+  Enabled: true
+
+# Style/EmptyLinesAroundClassBody:
+
+Style/ExtraSpacing:
+  Enabled: true
+  Exclude:
+    - '/**/companion_frame.rb'
+
+# Style/FileName:
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/GlobalVars:
+  Enabled: true
+  Exclude:
+    - '/**/trace_teller.rb'
+
+# Style/SingleLineBlockParams:
+
+
