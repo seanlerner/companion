@@ -1,6 +1,6 @@
 # Companion
 
-Companion's goal is to aid ruby developers by detailing the insides of their ruby program in line with where they're currently at in their editor. For example, if a developer had `foo.rb` open and was at the `def bar` method, companion woud show the results of the `bar` method and other relevant information (current variables set, etc.).
+Companion is a tool to aid ruby developers by detailing the insides of their ruby program in line with where they're currently at in their editor. For example, if a developer had `foo.rb` open and was at the `def bar` method, companion woud show the results of the `bar` method and other relevant information (current variables set, etc.). The objective is to reduce the back and forth between editor and debugger by showing the content that would have been requested from the debugger.
 
 ## Status
 
