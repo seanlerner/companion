@@ -2,7 +2,7 @@ Gem::Specification.new do |s|
   s.name    = 'companion'
   s.version = '0.0.0'
   s.date    = '2016-05-11'
-  s.executables   = ['companion']
+  s.executables = ['companion']
   s.authors = ['Sean Lerner']
   s.email = ['sean@smallcity.ca']
   s.summary = 'Companion evaluates and displays your code as you edit.'

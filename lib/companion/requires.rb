@@ -15,7 +15,6 @@ require 'titleize'
 # Development Gems
 require 'awesome_print'
 
-
 # Companion Classes
 require_relative 'data'
 require_relative 'frame'

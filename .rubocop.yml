@@ -17,10 +17,12 @@ Documentation:
 Lint/Eval:
   Enabled: true
   Exclude:
-    - '/**/companion_frame.rb'
-    - '/**/companion_tracer.rb'
-    - '/**/monitor.rb'
-    - '/**/trace_teller.rb'
+    - '/**/tracer.rb'
+
+Lint/RescueException:
+  Enabled: true
+  Exclude:
+    - '/**/manager.rb'
 
 Lint/UselessAssignment:
   Enabled: true
@@ -29,6 +31,7 @@ Lint/UselessAssignment:
 
 Metrics/AbcSize:
   Enabled: true
+  Max: 18
   Exclude:
     - '/**/frame.rb'
     - '/**/monitor.rb'
