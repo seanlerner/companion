@@ -32,19 +32,19 @@ class Companion
         var.first.last
       end
 
-      def trace_data
-        if current_line_trace_data
-          td = current_line_trace_data.trace_data
-          "#{td[:event]} #{td[:path]}:#{td[:lineno]} #{td[:defined_class]}##{td[:method_id]}\n#{td[:return_value] || td[:raised_exception]} AND #{td[:receiver]}"
+      def current_data
+        all.select { |data| data.trace_data[:lineno] == current_line }.last
+      end
+
+      def current_klass
+        current_data.klass if current_data
+      end
+
+      def current_trace_data
+        if current_data
+          td = current_data.trace_data
+          "#{td[:event]} #{td[:path]}:#{td[:lineno]} #{td[:defined_class]}##{td[:method_id]}\n#{td[:return_value] || td[:raised_exception]}"
         end
-      end
-
-      def current_line_klass
-        all.select { |data| data.trace_data[:lineno] == current_line }.last
-      end
-
-      def current_line_trace_data
-        all.select { |data| data.trace_data[:lineno] == current_line }.last
       end
     end
 

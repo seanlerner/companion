@@ -10,9 +10,9 @@ class Companion
 
       def setup
         new(name: :time, title: '', right: 0, data_width: time_width,   data: -> { Time.now.strftime('%H:%M:%S') })
-        # new(name: :class, top: 1,                                       data: -> { Data.klass })
+        new(name: :class, top: 1,                                       data: -> { Data.current_klass })
         new(name: :current_error, data_width: screen_width - 23,        data: -> { Data.current_error })
-        new(name: :trace_data, top: 2, height: third_of_screen,         data: -> { Data.trace_data })
+        new(name: :trace_data, top: 2, height: third_of_screen,         data: -> { Data.current_trace_data })
         new(name: :variables, top: :next, height: third_of_screen,      data: -> { Data.vars_formatted })
         new(name: :program_output, top: :next, height: third_of_screen, data: -> { $stdout.string })
       end
