@@ -1,7 +1,2 @@
 /tmp
-
-*.log
-
-test_area/test.rb
-
 logs/companion.log
