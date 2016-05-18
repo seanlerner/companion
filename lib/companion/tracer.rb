@@ -6,7 +6,9 @@ class Companion
     def initialize
       @trace_point = TracePoint.new do |tp|
         tp.disable
+        Companion.logger.debug tp.binding.receiver.to_s.yellow
         unless [Manager, Data].include? tp.binding.receiver
+          Companion.logger.debug tp.binding.receiver.to_s.blue
           @trace_data = tp
           @tp_binding = tp.binding
           capture_data
@@ -19,6 +21,7 @@ class Companion
 
     def capture_data
       data = Data.new
+      data.klass = @trace_data.binding.receiver
       data.trace_data = extract_trace_data
       data.local_vars = extract_local_vars
       data.instance_vars = extract_instance_vars
