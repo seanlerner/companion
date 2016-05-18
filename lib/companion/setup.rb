@@ -7,6 +7,7 @@ class Companion
 
     class << self
       def setup_logger
+        Dir.mkdir 'logs' unless Dir.exist? 'logs'
         Companion.logger = Logger.new('logs/companion.log')
         Companion.logger.level = Logger::DEBUG
         Companion.logger.info('Companion started.'.green)
