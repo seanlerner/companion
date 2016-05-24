@@ -1,5 +1,3 @@
-require_relative 'requires'
-
 class Companion
   class Setup
     Thread.abort_on_exception = true
@@ -32,11 +30,14 @@ class Companion
       end
     end
 
-    setup_logger
-    setup_initial_file
-    Frame.setup
-    setup_timer
-    Curses.curs_set(0)
-    require_relative 'manager'
+    def self.run
+      setup_logger
+      setup_initial_file
+      Frame.setup
+      setup_timer
+      Curses.curs_set(0)
+      Companion::Manager.run 
+    end
+
   end
 end

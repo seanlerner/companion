@@ -44,12 +44,15 @@ class Companion
       end
     end
 
-    @tracer = Tracer.new
+    def self.run
+      @tracer = Tracer.new
 
-    update_program_output Companion.file_to_watch
-    FileWatcher.new(Companion.file_to_watch).watch do |file_to_watch|
-      Companion.logger.debug 'File changed.'
-      update_program_output(file_to_watch)
+      update_program_output Companion.file_to_watch
+      FileWatcher.new(Companion.file_to_watch).watch do |file_to_watch|
+        Companion.logger.debug 'File changed.'
+        update_program_output(file_to_watch)
+      end
     end
+
   end
 end
