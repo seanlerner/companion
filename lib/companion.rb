@@ -5,4 +5,4 @@ class Companion
   end
 end
 
-require_relative 'companion/setup.rb'
+require_relative 'companion/requires'
