@@ -22,4 +22,3 @@ require_relative 'tracer'
 require_relative 'teardown'
 require_relative 'manager'
 require_relative 'setup'
-
