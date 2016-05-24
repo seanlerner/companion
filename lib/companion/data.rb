@@ -9,42 +9,42 @@ class Companion
     class << self
       attr_reader :initial_local_vars, :initial_instance_vars, :initial_global_vars, :all
       attr_accessor :current_line, :current_error, :previous_file, :current_file
+    end
 
-      def reset
-        @all = []
-        @current_error = nil
-      end
+    def self.reset
+      @all = []
+      @current_error = nil
+    end
 
-      def all_vars
-        return [] unless all[current_line]
-        all[current_line].local_vars + all[current_line].instance_vars + all[current_line].global_vars
-      end
+    def self.all_vars
+      return [] unless all[current_line]
+      all[current_line].local_vars + all[current_line].instance_vars + all[current_line].global_vars
+    end
 
-      def vars_formatted
-        all_vars.map { |var| "#{var_name(var)}: #{var_value(var)}" }.join("\n")
-      end
+    def self.vars_formatted
+      all_vars.map { |var| "#{var_name(var)}: #{var_value(var)}" }.join("\n")
+    end
 
-      def var_name(var)
-        var.first.first
-      end
+    def self.var_name(var)
+      var.first.first
+    end
 
-      def var_value(var)
-        var.first.last
-      end
+    def self.var_value(var)
+      var.first.last
+    end
 
-      def current_data
-        all.select { |data| data.trace_data[:lineno] == current_line }.last
-      end
+    def self.current_data
+      all.select { |data| data.trace_data[:lineno] == current_line }.last
+    end
 
-      def current_klass
-        current_data.klass if current_data
-      end
+    def self.current_klass
+      current_data.klass if current_data
+    end
 
-      def current_trace_data
-        if current_data
-          td = current_data.trace_data
-          "#{td[:event]} #{td[:path]}:#{td[:lineno]} #{td[:defined_class]}##{td[:method_id]}\n#{td[:return_value] || td[:raised_exception]}"
-        end
+    def self.current_trace_data
+      if current_data
+        td = current_data.trace_data
+        "#{td[:event]} #{td[:path]}:#{td[:lineno]} #{td[:defined_class]}##{td[:method_id]}\n#{td[:return_value] || td[:raised_exception]}"
       end
     end
 
